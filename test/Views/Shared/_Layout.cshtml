@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Assessment</title>
+
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/icofont/icofont.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto"><a href="~/Home/Index">Assessment Q1</a></h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <div id="preloader" style="display: none"></div>
+        <hr />
+        <footer>
+            <div class="d-none d-lg-flex align-items-center">
+                <div class="container d-flex">
+                    <div class="contact-info mr-auto">
+                        <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">Thembalethukhoza@gmail.com</a>
+                        <i class="icofont-phone"></i> 0820929263
+                        <i class="icofont-google-map"></i> Johannesburg,Gauteng
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/toastr.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

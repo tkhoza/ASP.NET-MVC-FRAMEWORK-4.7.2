@@ -1,0 +1,57 @@
+﻿@model test.Models.PersonViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+<br />
+<br />
+<div class="row backImg">
+    <div class="col-md-3 col-sm-12 col-xs-12"></div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="jumbotron jumbotron-fluid" style="background-color: #e3f2fd;border-radius:4px">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <hr class="RowColor" />
+                    <h4 style="text-align:center">log in</h4>
+                    <hr class="RowColor" />
+                    @Html.ValidationSummary(true)
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Name, new { @class = "col-md-12 control-label", style = "text-align:left" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control " })
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-12 control-label", style = "text-align:left" })
+                        <div class="col-md-12">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12" style="text-align:right">
+                            <input type="submit" value="Log in" class="btn btn-default" style="background-color: #3ec1d5" />
+                        </div>
+                    </div>
+
+                }
+            </section>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12"></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#preloader').hide();
+        if ("@ViewBag.permission" != "") {
+            toastr.error("Enter Password/username correctly", 'Login Failed');
+        }
+    </script>
+}

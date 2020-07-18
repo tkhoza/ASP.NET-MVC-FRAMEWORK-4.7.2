@@ -1,0 +1,10 @@
+﻿@if (Session["UserID"] != null || Session["UserName"] != null)
+{
+    <li>@Html.ActionLink("Log out", "Logout", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+}
+else
+{
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+}
+
+
